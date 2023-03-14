@@ -436,3 +436,14 @@ https://github.com/UJA-Desarrollo-Agil/descripcion-proyecto-microservicios-perso
 El código en ese repositorio muestra una aplicación similar, pero con mucha más funcionalidad que esta plantilla: acceso a base de datos remota, listado de documentos recuperados de la BBDD, peticiones entre distintos microservicios, etc.
 
 Además, incluye documentación sobre dicho código y un vídeo descriptivo de cómo se ha realizado y cómo funciona la aplicación de ejemplo.
+
+# Capturas de pantalla
+A continuación se mostrarán las capturas de pantalla pedidas:
+
+## Captura de pantalla HOME en FAUNA
+<img src='/Home.png' width='200px'>
+
+## Captura de pantalla HOME en FAUNA
+
+
+## Captura de pantalla HOME en FAUNA
