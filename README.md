@@ -474,3 +474,48 @@ A continuación se mostrarán las capturas de pantalla pedidas:
   Num_participaciones_mundiales_JJOO: 3
 }
 ```
+
+### Segundo documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Marta",
+    Apellidos: "Parra Tejederas"
+  },
+  Fecha: {
+    dia: 7,
+    mes: 12,
+    año: 1942
+  },
+  Direccion: {
+    calle: "Espino Negro",
+    localidad: "Córdoba",
+    provincia: "Córdoba",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1956, 1960, 1982],
+  Num_participaciones_mundiales_JJOO: 3
+}
+```
+### Tercer documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Jose Alberto",
+    Apellidos: "García Alonso"
+  },
+  Fecha: {
+    dia: 2,
+    mes: 1,
+    año: 1984
+  },
+  Direccion: {
+    calle: "Ben Saprut",
+    localidad: "Jaén",
+    provincia: "Jaén",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1994, 1998],
+  Num_participaciones_mundiales_JJOO: 2
+}
+```
