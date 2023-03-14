@@ -448,3 +448,29 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 
 ## Captura de pantalla de colección en FAUNA
 <img src='./coleccion.png'>
+
+
+# Documentos creados en JSON
+
+### Primer documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Mireia",
+    Apellidos: "Belmonte García"
+  },
+  Fecha: {
+    dia: 6,
+    mes: 8,
+    año: 1932
+  },
+  Direccion: {
+    calle: "Alcalá de Henares",
+    localidad: "Madrid",
+    provincia: "Madrid",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1944, 1948, 1982],
+  Num_participaciones_mundiales_JJOO: 3
+}
+```
