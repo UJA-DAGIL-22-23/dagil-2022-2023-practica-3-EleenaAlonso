@@ -441,9 +441,9 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 A continuación se mostrarán las capturas de pantalla pedidas:
 
 ## Captura de pantalla HOME en FAUNA
-<img src='/Home.png' width='200px'>
+<img src='/Home.png' width='400px'>
 
 ## Captura de pantalla HOME en FAUNA
-
+<img src='/bbdd.png' width='400px'>
 
 ## Captura de pantalla HOME en FAUNA
