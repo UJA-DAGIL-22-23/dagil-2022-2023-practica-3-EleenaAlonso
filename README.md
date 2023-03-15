@@ -462,7 +462,7 @@ A continuación se mostrarán las capturas de pantalla pedidas:
   Fecha: {
     dia: 6,
     mes: 8,
-    año: 1932
+    año: 1962
   },
   Direccion: {
     calle: "Alcalá de Henares",
@@ -470,8 +470,9 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     provincia: "Madrid",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1944, 1948, 1982],
-  Num_participaciones_mundiales_JJOO: 3
+  Anios_participacion_en_mundial: [1974, 1986, 1982],
+  Num_participaciones_mundiales_JJOO: 3,
+  Mejor_estilo_natacion: "mariposa"
 }
 ```
 
@@ -493,8 +494,9 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     provincia: "Córdoba",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1956, 1960, 1982],
-  Num_participaciones_mundiales_JJOO: 3
+  Anios_participacion_en_mundial: [1956, 1960, 19862],
+  Num_participaciones_mundiales_JJOO: 3,
+  Mejor_estilo_natacion: "mariposa"
 }
 ```
 ### Tercer documento
@@ -516,7 +518,8 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     pais: "España"
   },
   Anios_participacion_en_mundial: [1994, 1998],
-  Num_participaciones_mundiales_JJOO: 2
+  Num_participaciones_mundiales_JJOO: 2,
+  Mejor_estilo_natacion: "brazada"
 }
 ```
 ### Cuarto documento
@@ -537,8 +540,9 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     provincia: "Cáceres",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1992, 1998],
-  Num_participaciones_mundiales_JJOO: 2
+  Anios_participacion_en_mundial: [1992, 1995],
+  Num_participaciones_mundiales_JJOO: 2,
+  Mejor_estilo_natacion: "brazada"
 }
 ```
 ### Quinto documento
@@ -559,8 +563,9 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     provincia: "Barcelona",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1978, 1964, 1982],
-  Num_participaciones_mundiales_JJOO: 3
+  Anios_participacion_en_mundial: [1968, 1964, 1970],
+  Num_participaciones_mundiales_JJOO: 3,
+  Mejor_estilo_natacion: "brazada"
 }
 ```
 ### Sexto documento
@@ -573,7 +578,7 @@ A continuación se mostrarán las capturas de pantalla pedidas:
   Fecha: {
     dia: 1,
     mes: 9,
-    año: 1953
+    año: 1970
   },
   Direccion: {
     calle: "Camino Miguel",
@@ -581,8 +586,9 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     provincia: "Málaga",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1991, 1968, 1982],
-  Num_participaciones_mundiales_JJOO: 3
+  Anios_participacion_en_mundial: [1991, 1986, 1982],
+  Num_participaciones_mundiales_JJOO: 3,
+  Mejor_estilo_natacion: "crol"
 }
 ```
 ### Séptimo documento
@@ -595,16 +601,17 @@ A continuación se mostrarán las capturas de pantalla pedidas:
   Fecha: {
     dia: 27,
     mes: 9,
-    año: 1959
+    año: 1960
   },
   Direccion: {
     calle: "Plaza Antón",
-    localidad: "Málaga",
-    provincia: "Málaga",
+    localidad: "Almería",
+    provincia: "Almería",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1964, 1960, 1982],
-  Num_participaciones_mundiales_JJOO: 3
+  Anios_participacion_en_mundial: [1977, 1980, 1982],
+  Num_participaciones_mundiales_JJOO: 3,
+  Mejor_estilo_natacion: "crol"
 }
 ```
 ### Octavo documento
@@ -616,17 +623,18 @@ A continuación se mostrarán las capturas de pantalla pedidas:
   },
   Fecha: {
     dia: 11,
-    mes: 9,
+    mes: 8,
     año: 1955
   },
   Direccion: {
-    calle: "Plaza Antón",
-    localidad: "Málaga",
-    provincia: "Málaga",
+    calle: "Plaza de la Constitución",
+    localidad: "Madrid",
+    provincia: "Madrid",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1964, 1960, 1982],
-  Num_participaciones_mundiales_JJOO: 3
+  Anios_participacion_en_mundial: [1970, 1973, 1978],
+  Num_participaciones_mundiales_JJOO: 3,
+  Mejor_estilo_natacion: "espalda"
 }
 ```
 ### Noveno documento
@@ -647,8 +655,9 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     provincia: "Huelva",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1994, 1982],
-  Num_participaciones_mundiales_JJOO: 2
+  Anios_participacion_en_mundial: [1990, 1994],
+  Num_participaciones_mundiales_JJOO: 2,
+  Mejor_estilo_natacion: "espalda"
 }
 ```
 ### Décimo documento
@@ -659,7 +668,7 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     Apellidos: "Romero Jiménez"
   },
   Fecha: {
-    dia: 7,
+    dia: 27,
     mes: 7,
     año: 1980
   },
@@ -669,7 +678,8 @@ A continuación se mostrarán las capturas de pantalla pedidas:
     provincia: "Ávila",
     pais: "España"
   },
-  Anios_participacion_en_mundial: [1992, 1998],
-  Num_participaciones_mundiales_JJOO: 2
+  Anios_participacion_en_mundial: [1997, 1998],
+  Num_participaciones_mundiales_JJOO: 2,
+  Mejor_estilo_natacion: "espalda"
 }
 ```
