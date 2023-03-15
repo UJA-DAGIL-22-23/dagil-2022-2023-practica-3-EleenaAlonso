@@ -519,3 +519,157 @@ A continuación se mostrarán las capturas de pantalla pedidas:
   Num_participaciones_mundiales_JJOO: 2
 }
 ```
+### Cuarto documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Antonio",
+    Apellidos: "Moya Blanco"
+  },
+  Fecha: {
+    dia: 15,
+    mes: 4,
+    año: 1981
+  },
+  Direccion: {
+    calle: "Miramontes del Pozo",
+    localidad: "Cáceres",
+    provincia: "Cáceres",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1992, 1998],
+  Num_participaciones_mundiales_JJOO: 2
+}
+```
+### Quinto documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Fernando",
+    Apellidos: "Gutierrez Gómez"
+  },
+  Fecha: {
+    dia: 8,
+    mes: 2,
+    año: 1950
+  },
+  Direccion: {
+    calle: "Rúa Arnau",
+    localidad: "Barcelona",
+    provincia: "Barcelona",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1978, 1964, 1982],
+  Num_participaciones_mundiales_JJOO: 3
+}
+```
+### Sexto documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Paula",
+    Apellidos: "Ortega Martin"
+  },
+  Fecha: {
+    dia: 1,
+    mes: 9,
+    año: 1953
+  },
+  Direccion: {
+    calle: "Camino Miguel",
+    localidad: "Málaga",
+    provincia: "Málaga",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1991, 1968, 1982],
+  Num_participaciones_mundiales_JJOO: 3
+}
+```
+### Séptimo documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Carlos",
+    Apellidos: "Perez Vega"
+  },
+  Fecha: {
+    dia: 27,
+    mes: 9,
+    año: 1959
+  },
+  Direccion: {
+    calle: "Plaza Antón",
+    localidad: "Málaga",
+    provincia: "Málaga",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1964, 1960, 1982],
+  Num_participaciones_mundiales_JJOO: 3
+}
+```
+### Octavo documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Alejandro",
+    Apellidos: "Ibáñez Vega"
+  },
+  Fecha: {
+    dia: 11,
+    mes: 9,
+    año: 1955
+  },
+  Direccion: {
+    calle: "Plaza Antón",
+    localidad: "Málaga",
+    provincia: "Málaga",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1964, 1960, 1982],
+  Num_participaciones_mundiales_JJOO: 3
+}
+```
+### Noveno documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Esther",
+    Apellidos: "Dominguez Carmona"
+  },
+  Fecha: {
+    dia: 22,
+    mes: 3,
+    año: 1976
+  },
+  Direccion: {
+    calle: "Paseo Celia",
+    localidad: "Huelva",
+    provincia: "Huelva",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1994, 1982],
+  Num_participaciones_mundiales_JJOO: 2
+}
+```
+### Décimo documento
+```
+{
+  Nombre_completo: {
+    Nombre: "Hugo",
+    Apellidos: "Romero Jiménez"
+  },
+  Fecha: {
+    dia: 7,
+    mes: 7,
+    año: 1980
+  },
+  Direccion: {
+    calle: "Camino Vargas",
+    localidad: "Ávila",
+    provincia: "Ávila",
+    pais: "España"
+  },
+  Anios_participacion_en_mundial: [1992, 1998],
+  Num_participaciones_mundiales_JJOO: 2
+}
+```
