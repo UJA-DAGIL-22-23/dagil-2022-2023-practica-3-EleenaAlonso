@@ -449,6 +449,8 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 ## Captura de pantalla de colección en FAUNA
 <img src='./coleccion.png'>
 
+## Capturas de pantalla PRIMER INCREMENTO de Trello comienzo/final 
+<img src='./increm1_trello_comienzo.png'>
 
 # Documentos creados en JSON
 
