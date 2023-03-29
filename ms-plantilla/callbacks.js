@@ -61,6 +61,28 @@ const CB_MODEL_SELECTS = {
         }
     },
 
+     /**
+     * Método para obtener todos los plantilla de la BBDD.
+     * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
+     * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
+     */
+     getTodos: async (req, res) => {
+        try {
+            let plantilla = await client.query(
+                q.Map(
+                    q.Paginate(q.Documents(q.Collection(COLLECTION))),
+                    q.Lambda("X", q.Get(q.Var("X")))
+                )
+            )
+            // console.log( plantilla ) // Para comprobar qué se ha devuelto en plantilla
+            CORS(res)
+                .status(200)
+                .json(plantilla)
+        } catch (error) {
+            CORS(res).status(500).json({ error: error.description })
+        }
+    },
+
 }
 
 
