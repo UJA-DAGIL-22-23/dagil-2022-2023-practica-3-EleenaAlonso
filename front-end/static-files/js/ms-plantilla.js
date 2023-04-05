@@ -105,7 +105,7 @@ Plantilla.recupera = async function (callBackFn) {
         response = await fetch(url)
 
     } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway puta")
+        alert("Error: No se han podido acceder al API Gateway hola")
         console.error(error)
         //throw error
     }
@@ -164,22 +164,22 @@ Plantilla.cabeceraTable = function () {
  */
 Plantilla.cuerpoTr = function (p) {
     const d = p.data
-    const nombre = d.nombre;
-    const apellidos = d.Apellidos;
-    const fecha = d.fecha;
-    const direccion = d.direccion;
-    const añosParticiapcionMundialesJJOO = d.añosParticiapcionMundialesJJOO;
-    const mejorEstiloNatación = d.mejorEstiloNatación;
+    const nombre = d.Nombre_completo;  
+    const fecha = d.Fecha;
+    const direccion = d.Direccion;
+    const añosParticipacion = d.Anios_participacion_en_mundial;
+    const añosParticipacionMundialesJJOO = d.Num_participaciones_mundiales_JJOO;
+    const mejorEstiloNatación = d.Mejor_estilo_natacion;
 
     return `<tr title="${p.ref['@ref'].id}">
-    <td>${nombre}</td>
-    <td><em>${apellidos}</em></td>
-    <td>${fecha}</td>
-    <td>${direccion}</td>
-    <td>${añosParticiapcionMundialesJJOO}</td>
+    <td>${nombre.Nombre}</td>
+    <td>${nombre.Apellidos}</td>
+    <td>${fecha.dia}/${fecha.mes}/${fecha.año}</td>
+    <td>${direccion.calle}, ${direccion.localidad}, ${direccion.provincia}, ${direccion.pais}</td>
+    <td>${añosParticipacion}</td>
+    <td>${añosParticipacionMundialesJJOO}</td>
     <td>${mejorEstiloNatación}</td>
-    </tr>
-    `;
+    </tr>`;
 }
 
 /**
