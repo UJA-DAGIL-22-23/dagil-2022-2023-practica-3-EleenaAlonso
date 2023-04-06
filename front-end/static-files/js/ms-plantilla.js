@@ -120,6 +120,14 @@ Plantilla.recupera = async function (callBackFn) {
 
 
 /**
+ * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres.
+ * @returns True
+ */
+Plantilla.listarNombres = function () {
+    this.recupera(this.imprimeNombres);
+}
+
+/**
  * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
@@ -158,6 +166,19 @@ Plantilla.cabeceraTable = function () {
 }
 
 /**
+ * Crea la cabecera para mostrar la info como tabla de listar nombres
+ * @returns Cabecera de la tabla
+ */
+Plantilla.cabeceraTableNombres = function () {
+    return `<table class="listado-plantilla">
+        <thead>
+        <th>Nombres</th><th>Apellidos</th>
+        </thead>
+        <tbody>
+    `;
+}
+
+/**
  * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD
  * @param {plantilla} p Datos del plantilla a mostrar
  * @returns Cadena conteniendo todo el elemento TR que muestra el plantilla.
@@ -183,6 +204,21 @@ Plantilla.cuerpoTr = function (p) {
 }
 
 /**
+ * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD de los nombres
+ * @param {plantilla} p Datos del plantilla a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el plantilla.
+ */
+Plantilla.cuerpoTrNombres = function (p) {
+    const d = p.data
+    const nombre = d.Nombre_completo;  
+
+    return `<tr title="${p.ref['@ref'].id}">
+    <td>${nombre.Nombre}</td>
+    <td>${nombre.Apellidos}</td>
+    </tr>`;
+}
+
+/**
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
@@ -199,6 +235,22 @@ Plantilla.imprime = function (vector) {
     let msj = "";
     msj += Plantilla.cabeceraTable();
     vector.forEach(e => msj += Plantilla.cuerpoTr(e))
+    msj += Plantilla.pieTable();
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar( "Listado de plantillas", msj )
+
+}
+
+/**
+ * Función para mostrar en pantalla todos los nombres de plantilla que se han recuperado de la BBDD.
+ * @param {Vector_de_plantilla} vector Vector con los datos de los plantilla a mostrar
+ */
+Plantilla.imprimeNombres = function (vector) {
+    //console.log( vector ) // Para comprobar lo que hay en vector
+    let msj = "";
+    msj += Plantilla.cabeceraTableNombres();
+    vector.forEach(e => msj += Plantilla.cuerpoTrNombres(e))
     msj += Plantilla.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
