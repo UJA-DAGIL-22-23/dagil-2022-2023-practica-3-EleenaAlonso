@@ -105,7 +105,7 @@ Plantilla.recupera = async function (callBackFn) {
         response = await fetch(url)
 
     } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway hola")
+        alert("Error: No se han podido acceder al API Gateway")
         console.error(error)
         //throw error
     }

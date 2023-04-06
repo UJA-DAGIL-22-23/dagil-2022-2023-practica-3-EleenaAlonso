@@ -56,15 +56,27 @@ describe('Servidor PLANTILLA:', () => {
         .expect('Content-Type', /json/)
         .expect(function (res) {
           //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
-          assert(res.body.data[0].data.hasOwnProperty('Nombre_completo'));
-          assert(res.body.data[0].data.Nombre_completo.Nombre === "Mireia");
+          for (let i = 0; i < res.body.data.length; i++) {
+            let item = res.body.data[i];
+            assert(res.body.data[i].data.hasOwnProperty('Nombre_completo'));
 
+            assert(res.body.data[i].data.Nombre_completo.Nombre === item.data.Nombre_completo.Nombre);
+            assert(res.body.data[i].data.Nombre_completo.Apellidos === item.data.Nombre_completo.Apellidos);
+            //console.log(item.data);
+          }
         })
         .end((error) => { error ? done.fail(error) : done(); }
         );
     });
-
+    it("debe mostrar la información de la plantilla correctamente en el cuerpoTR", (done) => {
+      supertest(app)
+        .get('/test_db')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(function (res) {
+          
+        })
+    });
   })
-});
-
-
+      .end((error) => { error ? done.fail(error) : done(); });    
+    });
