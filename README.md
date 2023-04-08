@@ -453,6 +453,9 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 <img src='./increm1_trello_comienzo.png'>
 <img src='./increm1_trello_final.png'>
 
+## Capturas de pantalla SEGUNDO INCREMENTO de Trello comienzo/final 
+<img src='./increm2_trello_comienzo.png'>
+
 # Documentos creados en JSON
 
 ### Primer documento
