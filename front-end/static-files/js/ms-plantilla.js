@@ -118,6 +118,45 @@ Plantilla.recupera = async function (callBackFn) {
     }
 }
 
+/**
+ * Función que recuperar todos los plantilla llamando al MS plantilla
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */ 
+Plantilla.recuperaAlfabetic = async function (callBackFn) {
+    let response = null
+
+    // Intento conectar con el microservicio plantilla
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPlantilla = null
+    if (response) {
+        vectorPlantilla = await response.json()
+        vectorPlantilla.data.sort((a,b) => {
+            const nomA = a.data.Nombre_completo.Apellidos.toLowerCase();
+            const nomB = b.data.Nombre_completo.Apellidos.toLowerCase();
+            
+            if(nomA < nomB) { 
+                return -1; 
+            }
+            if(nomA > nomB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPlantilla.data)
+    }
+}
+
 
 /**
  * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres.
@@ -125,6 +164,14 @@ Plantilla.recupera = async function (callBackFn) {
  */
 Plantilla.listarNombres = function () {
     this.recupera(this.imprimeNombres);
+}
+
+/**
+ * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres alfabéticamente.
+ * @returns True
+ */
+Plantilla.listarNombresAlfabetic = function () {
+    this.recuperaAlfabetic(this.imprimeNombresAlfabetic);
 }
 
 /**
@@ -178,6 +225,7 @@ Plantilla.cabeceraTableNombres = function () {
     `;
 }
 
+
 /**
  * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD
  * @param {plantilla} p Datos del plantilla a mostrar
@@ -204,13 +252,39 @@ Plantilla.cuerpoTr = function (p) {
 }
 
 /**
- * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD de los nombres
+ * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD de los nombres 
  * @param {plantilla} p Datos del plantilla a mostrar
  * @returns Cadena conteniendo todo el elemento TR que muestra el plantilla.
  */
 Plantilla.cuerpoTrNombres = function (p) {
     const d = p.data
     const nombre = d.Nombre_completo;  
+
+    return `<tr title="${p.ref['@ref'].id}">
+    <td>${nombre.Nombre}</td>
+    <td>${nombre.Apellidos}</td>
+    </tr>`;
+}
+
+/**
+ * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD de los nombres alfabeticamente
+ * @param {plantilla} p Datos del plantilla a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el plantilla.
+ */
+Plantilla.cuerpoTrNombresAlfabetic = function (p) {
+    const d = p.data
+    const nombre = d.Nombre_completo;
+    
+    nombre.sort(function(a, b){
+          if(a.Nombre < b.Nombre) { return -1; }
+          if(a.Nombre > b.Nombre) { return 1; }
+          return 0;
+      });
+
+
+    //for (let i = 0; i < nombre.Nombre.le; i++) {
+    //    console.log(Nombre_completo.nombre)
+    //}
 
     return `<tr title="${p.ref['@ref'].id}">
     <td>${nombre.Nombre}</td>
@@ -239,8 +313,8 @@ Plantilla.imprime = function (vector) {
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de plantillas", msj )
-
 }
+
 
 /**
  * Función para mostrar en pantalla todos los nombres de plantilla que se han recuperado de la BBDD.
@@ -255,5 +329,20 @@ Plantilla.imprimeNombres = function (vector) {
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de plantillas", msj )
+}
 
+
+/**
+ * Función para mostrar en pantalla todos los nombres alfabéticamente de plantilla que se han recuperado de la BBDD.
+ * @param {Vector_de_plantilla} vector Vector con los datos de los plantilla a mostrar
+ */
+Plantilla.imprimeNombresAlfabetic = function (vector) {
+    //console.log( vector ) // Para comprobar lo que hay en vector
+    let msj = "";
+    msj += Plantilla.cabeceraTableNombres();
+    vector.forEach(e => msj += Plantilla.cuerpoTrNombres(e))
+    msj += Plantilla.pieTable();
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar( "Listado de plantillas", msj )
 }
