@@ -171,7 +171,7 @@ Plantilla.listarNombres = function () {
  * @returns True
  */
 Plantilla.listarNombresAlfabetic = function () {
-    this.recuperaAlfabetic(this.imprimeNombresAlfabetic);
+    this.recuperaAlfabetic(this.imprimeNombres);
 }
 
 /**
@@ -321,22 +321,6 @@ Plantilla.imprime = function (vector) {
  * @param {Vector_de_plantilla} vector Vector con los datos de los plantilla a mostrar
  */
 Plantilla.imprimeNombres = function (vector) {
-    //console.log( vector ) // Para comprobar lo que hay en vector
-    let msj = "";
-    msj += Plantilla.cabeceraTableNombres();
-    vector.forEach(e => msj += Plantilla.cuerpoTrNombres(e))
-    msj += Plantilla.pieTable();
-
-    // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar( "Listado de plantillas", msj )
-}
-
-
-/**
- * Función para mostrar en pantalla todos los nombres alfabéticamente de plantilla que se han recuperado de la BBDD.
- * @param {Vector_de_plantilla} vector Vector con los datos de los plantilla a mostrar
- */
-Plantilla.imprimeNombresAlfabetic = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
     msj += Plantilla.cabeceraTableNombres();
