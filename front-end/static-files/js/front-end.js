@@ -37,3 +37,119 @@ Frontend.Article.actualizar = function (titulo, contenido) {
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML = contenido
     return this;
 }
+
+/**
+ * Muestro el article
+ * @returns El propio Article para poder concatenar llamadas
+ */
+Frontend.Article.mostrar = function () {
+    let article = document.getElementById(Frontend.ID_SECCION_PRINCIPAL);
+    Frontend.quitarClase(Frontend.ID_SECCION_PRINCIPAL, Frontend.CLASS_OCULTAR)
+        .aniadirClase(Frontend.ID_SECCION_PRINCIPAL, Frontend.CLASS_MOSTRAR)
+
+}
+
+
+
+/**
+ * Quita a un elemento del cual se pasa él mismo o su ID la clase indicada por nombreClase
+ * @param {string} elemento Elemento o id del elemento
+ * @param {string} nombreClase Nombre de la clase a quitar
+ */
+Frontend.quitarClase = function (elemento, nombreClase) {
+    elemento = (typeof elemento === "string") ? document.getElementById(elemento) : elemento;
+    let clase = elemento.getAttribute("class")
+    clase = clase?clase:""
+    clase = clase.split(" ") // Separo la cadena por " "
+        .filter(e => e) // Quito las cadenas vacías que pudiera haber
+        .filter(e => e != nombreClase) // Quito la cadena indicada por nombreClase
+        .join(" ") // creo una sola cadena con todas las clases separadas por espacios
+    elemento.setAttribute("class", clase)
+
+    return this;
+}
+
+/**
+ * Añade a un elemento del cual se pasa él mismo o su ID la clase indicada por nombreClase
+ * @param {string} elemento Elemento o id del elemento
+ * @param {string} nombreClase Nombre de la clase a quitar
+ */
+Frontend.aniadirClase = function (elemento, nombreClase) {
+    elemento = (typeof elemento === "string") ? document.getElementById(elemento) : elemento;
+    let clase = elemento.getAttribute("class")
+    clase = clase?clase:""
+    clase = clase.split(" ") // Separo la cadena por " "
+        .filter(e => e) // Quito las cadenas vacías que pudiera haber
+        .filter(e => e != nombreClase) // Quito la cadena indicada por nombreClase, por si ya estuviera
+        .concat(nombreClase) // Añado la clase indicada en nombreClase
+        .join(" ") // creo una sola cadena con todas las clases separadas por espacios
+    elemento.setAttribute("class", clase)
+
+    return this;
+}
+
+
+/**
+ * Borrar titulo y contenido del article
+ * @returns Frontend para poder concatenar llamadas 
+ */
+Frontend.Article.borrar = function () {
+    return this.borrarTitulo().borrarContenido();
+}
+
+/**
+ * Borrar titulo del article
+ * @returns Frontend.Article para poder concatenar llamadas
+ */
+Frontend.Article.borrarTitulo = function () {
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO).innerHTML = "";
+    return this;
+}
+
+/**
+ * Borrar contenido del article
+ * @returns Frontend.Article para poder concatenar llamadas
+ */
+Frontend.Article.borrarContenido = function () {
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML = "";
+    return this;
+}
+
+/**
+ * Añadir info al titulo del article
+ * @param {string} Texto Nuevo texto (en formato HTML) a añadir
+ * @returns Frontend para poder concatenar llamadas 
+ */
+Frontend.Article.aniadirTitulo = function (texto) {
+    texto = texto || ""
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO).innerHTML += "\n" + texto;
+    return this;
+}
+
+/**
+ * Añadir info al contenido del article
+ * @param {string} Texto Nuevo texto (en formato HTML) a añadir
+ * @returns Frontend para poder concatenar llamadas 
+ */
+Frontend.Article.aniadirContenido = function (texto) {
+    
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML += "\n" + texto;
+    return this;
+}
+
+
+/**
+ * Cambia toda la información del article
+ * @param {String} titulo Información para el título del article 
+ * @param {String} contenido INformacion para el contenido del article
+ * @returns El propio Article para concatenar llamadas
+ */
+Frontend.Article.actualizarA = function (titulo, contenido) {
+    titulo = titulo || ""
+    contenido = contenido || ""
+    this.borrar()
+        .aniadirTitulo(titulo)
+        .aniadirContenido(contenido)
+        .mostrar()
+    return this;
+}
