@@ -146,7 +146,7 @@ Esto afecta a los métodos:
 // SPECS para Jasmine
 
 //TDD para la Historia de Usuario 2 y 3 (HU 2 y HU 3)
-describe("Pie table ", function () {
+describe("Plantilla.pieTable ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
             expect(Plantilla.pieTable()).toBe("</tbody></table>");
@@ -154,13 +154,12 @@ describe("Pie table ", function () {
 });
 
 
-describe("Cabecera table Nombres", function () {
+describe("Plantilla.TableNombres", function () {
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
             expect(Plantilla.cabeceraTableNombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`);
         });
 });
-
 
 
 describe('Plantilla.cuerpoTrNombres', function () {
@@ -171,7 +170,6 @@ describe('Plantilla.cuerpoTrNombres', function () {
             Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" }
         }
     }
-
     // Realizar los expect
     it("debería devolver una cadena que contenga los nombres de la plantilla",
         function () {
@@ -182,7 +180,7 @@ describe('Plantilla.cuerpoTrNombres', function () {
 
 
 describe('Plantilla.imprimeNombres', function () {
-      // Realizo los expect
+    // Realizo los expect
     it("debería mostrar una tabla con los nombres de las plantillas en Frontend.Article",
         function () {
             const vector = [
@@ -195,15 +193,93 @@ describe('Plantilla.imprimeNombres', function () {
                     data: { Nombre_completo: { Nombre: "Lionel", Apellidos: "Messi" } }
                 }
             ];
-            
-        const expectedMsj = Plantilla.cabeceraTableNombres() + Plantilla.cuerpoTrNombres(vector[0]) + Plantilla.cuerpoTrNombres(vector[1]) + Plantilla.pieTable();
-        spyOn(Frontend.Article, 'actualizar');
-        Plantilla.imprimeNombres(vector);
-        expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de plantillas', expectedMsj);
-    });
+
+            const expectedMsj = Plantilla.cabeceraTableNombres() + Plantilla.cuerpoTrNombres(vector[0]) + Plantilla.cuerpoTrNombres(vector[1]) + Plantilla.pieTable();
+            spyOn(Frontend.Article, 'actualizar');
+            Plantilla.imprimeNombres(vector);
+            expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de plantillas', expectedMsj);
+        });
 });
 
 
 //TDD para la Historia de Usuario 4 (HU 4)
+describe("Plantilla.cabeceraTable", function () {
+    it("debería devolver las etiquetas HTML para la cabecera de tabla",
+        function () {
+            expect(Plantilla.cabeceraTable()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th></thead><tbody>`);
+        });
+});
 
 
+describe('Plantilla.cuerpoTr', function () {
+    // Preparar los datos de la prueba
+    const p = {
+        ref: { "@ref": { id: "ref persona 1" } },
+        data: {
+            Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" },
+            Fecha: { dia: 1, mes: 1, año: 2000 },
+            Direccion: {
+                calle: "Calle Falsa 123",
+                localidad: "Springfield",
+                provincia: "Estados Unidos",
+                pais: "EEUU",
+            },
+            Anios_participacion_en_mundial: 2,
+            Num_participaciones_mundiales_JJOO: 1,
+            Mejor_estilo_natacion: "Mariposa",
+        }
+    }
+
+    // Realizar los expect
+    it("debería devolver una cadena que contenga todos los datos de la plantilla de personas",
+        function () {
+            expect(Plantilla.cuerpoTr(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td><td>${p.data.Fecha.dia}/${p.data.Fecha.mes}/${p.data.Fecha.año}</td><td>${p.data.Direccion.calle}, ${p.data.Direccion.localidad}, ${p.data.Direccion.provincia}, ${p.data.Direccion.pais}</td><td>${p.data.Anios_participacion_en_mundial}</td><td>${p.data.Num_participaciones_mundiales_JJOO}</td><td>${p.data.Mejor_estilo_natacion}</td></tr>`);
+        });
+});
+
+
+describe('Plantilla.imprime', function () {
+    // Realizo los expect
+    it("debería mostrar una tabla con todos los datos de las plantillas de personas en Frontend.Article",
+        function () {
+            const vector = [
+                {
+                    ref: { "@ref": { id: "ref persona 1" } },
+                    data: { 
+                        Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" },
+                        Fecha: { dia: 1, mes: 1, año: 2000 },
+                        Direccion: {
+                            calle: "Calle Falsa 123",
+                            localidad: "Springfield",
+                            provincia: "Estados Unidos",
+                            pais: "EEUU",
+                        },
+                        Anios_participacion_en_mundial: 2,
+                        Num_participaciones_mundiales_JJOO: 1,
+                        Mejor_estilo_natacion: "Mariposa",
+                    }
+                },
+                {
+                    ref: { "@ref": { id: "ref persona 2" } },
+                    data: { 
+                        Nombre_completo: { Nombre: "Lionel", Apellidos: "Messi" },
+                        Fecha: { dia: 1, mes: 1, año: 2000 },
+                        Direccion: {
+                            calle: "Calle Falsa 123",
+                            localidad: "Springfield",
+                            provincia: "Estados Unidos",
+                            pais: "EEUU",
+                        },
+                        Anios_participacion_en_mundial: 2,
+                        Num_participaciones_mundiales_JJOO: 1,
+                        Mejor_estilo_natacion: "Mariposa",
+                }
+                }
+            ];
+
+            const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(vector[0]) + Plantilla.cuerpoTr(vector[1]) + Plantilla.pieTable();
+            spyOn(Frontend.Article, 'actualizar');
+            Plantilla.imprime(vector);
+            expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de plantillas', expectedMsj);
+        });
+});

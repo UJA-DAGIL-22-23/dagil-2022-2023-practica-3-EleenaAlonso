@@ -263,12 +263,7 @@ Plantilla.procesarAcercaDe = function () {
  * @returns Cabecera de la tabla
  */
 Plantilla.cabeceraTable = function () {
-    return `<table class="listado-plantilla">
-        <thead>
-        <th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th>
-        </thead>
-        <tbody>
-    `;
+    return `<table class="listado-plantilla"><thead><th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th></thead><tbody>`;
 }
 
 /**
@@ -294,15 +289,7 @@ Plantilla.cuerpoTr = function (p) {
     const añosParticipacionMundialesJJOO = d.Num_participaciones_mundiales_JJOO;
     const mejorEstiloNatación = d.Mejor_estilo_natacion;
 
-    return `<tr title="${p.ref['@ref'].id}">
-    <td>${nombre.Nombre}</td>
-    <td>${nombre.Apellidos}</td>
-    <td>${fecha.dia}/${fecha.mes}/${fecha.año}</td>
-    <td>${direccion.calle}, ${direccion.localidad}, ${direccion.provincia}, ${direccion.pais}</td>
-    <td>${añosParticipacion}</td>
-    <td>${añosParticipacionMundialesJJOO}</td>
-    <td>${mejorEstiloNatación}</td>
-    </tr>`;
+    return `<tr title="${p.ref['@ref'].id}"><td>${nombre.Nombre}</td><td>${nombre.Apellidos}</td><td>${fecha.dia}/${fecha.mes}/${fecha.año}</td><td>${direccion.calle}, ${direccion.localidad}, ${direccion.provincia}, ${direccion.pais}</td><td>${añosParticipacion}</td><td>${añosParticipacionMundialesJJOO}</td><td>${mejorEstiloNatación}</td></tr>`;
 }
 
 
