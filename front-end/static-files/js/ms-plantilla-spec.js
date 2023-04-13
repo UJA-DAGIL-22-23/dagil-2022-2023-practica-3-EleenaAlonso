@@ -144,6 +144,8 @@ Esto afecta a los métodos:
  */
 
 // SPECS para Jasmine
+
+//TDD para la Historia de Usuario 2 y 3 (HU 2 y HU 3)
 describe("Pie table ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
@@ -202,6 +204,6 @@ describe('Plantilla.imprimeNombres', function () {
 });
 
 
-
+//TDD para la Historia de Usuario 4 (HU 4)
 
 
