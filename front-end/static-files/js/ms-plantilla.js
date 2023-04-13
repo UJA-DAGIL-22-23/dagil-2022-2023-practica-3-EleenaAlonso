@@ -276,12 +276,7 @@ Plantilla.cabeceraTable = function () {
  * @returns Cabecera de la tabla
  */
 Plantilla.cabeceraTableNombres = function () {
-    return `<table class="listado-plantilla">
-        <thead>
-        <th>Nombres</th><th>Apellidos</th>
-        </thead>
-        <tbody>
-    `;
+    return `<table class="listado-plantilla"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`;
 }
 
 
@@ -348,39 +343,17 @@ Plantilla.cuerpoTrNombres = function (p) {
     const d = p.data
     const nombre = d.Nombre_completo;  
 
-    return `<tr title="${p.ref['@ref'].id}">
-    <td>${nombre.Nombre}</td>
-    <td>${nombre.Apellidos}</td>
-    </tr>`;
+    return `<tr title="${p.ref['@ref'].id}"><td>${nombre.Nombre}</td><td>${nombre.Apellidos}</td></tr>`;
 }
 
-/**
- * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD de los nombres alfabeticamente
- * @param {plantilla} p Datos del plantilla a mostrar
- * @returns Cadena conteniendo todo el elemento TR que muestra el plantilla.
- */
-Plantilla.cuerpoTrNombresAlfabetic = function (p) {
-    const d = p.data
-    const nombre = d.Nombre_completo;
-    
-    nombre.sort(function(a, b){
-          if(a.Nombre < b.Nombre) { return -1; }
-          if(a.Nombre > b.Nombre) { return 1; }
-          return 0;
-      });
 
-    return `<tr title="${p.ref['@ref'].id}">
-    <td>${nombre.Nombre}</td>
-    <td>${nombre.Apellidos}</td>
-    </tr>`;
-}
 
 /**
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
 Plantilla.pieTable = function () {
-    return "</tbody></table>";
+  return "</tbody></table>";
 }
 
 /**

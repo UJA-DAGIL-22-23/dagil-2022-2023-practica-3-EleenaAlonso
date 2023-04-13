@@ -116,14 +116,14 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
         function () {
             Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            
+
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
             expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
             expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
             expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
-          
+
         })
-    })
+})
 
 
 
@@ -142,3 +142,66 @@ Esto afecta a los métodos:
  por tanto: para esta práctica, se pueden dejar SIN HACER.
 
  */
+
+// SPECS para Jasmine
+describe("Pie table ", function () {
+    it("debería devolver las etiquetas HTML para el pie de tabla",
+        function () {
+            expect(Plantilla.pieTable()).toBe("</tbody></table>");
+        });
+});
+
+
+describe("Cabecera table Nombres", function () {
+    it("debería devolver las etiquetas HTML para la cabecera de tabla",
+        function () {
+            expect(Plantilla.cabeceraTableNombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`);
+        });
+});
+
+
+
+describe('Plantilla.cuerpoTrNombres', function () {
+    // Preparar los datos de la prueba
+    const p = {
+        ref: { "@ref": { id: "ref persona 1" } },
+        data: {
+            Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" }
+        }
+    }
+
+    // Realizar los expect
+    it("debería devolver una cadena que contenga los nombres de la plantilla",
+        function () {
+            expect(Plantilla.cuerpoTrNombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td></tr>`);
+        });
+});
+
+
+
+describe('Plantilla.imprimeNombres', function () {
+      // Realizo los expect
+    it("debería mostrar una tabla con los nombres de las plantillas en Frontend.Article",
+        function () {
+            const vector = [
+                {
+                    ref: { "@ref": { id: "ref persona 1" } },
+                    data: { Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" } }
+                },
+                {
+                    ref: { "@ref": { id: "ref persona 2" } },
+                    data: { Nombre_completo: { Nombre: "Lionel", Apellidos: "Messi" } }
+                }
+            ];
+            
+        const expectedMsj = Plantilla.cabeceraTableNombres() + Plantilla.cuerpoTrNombres(vector[0]) + Plantilla.cuerpoTrNombres(vector[1]) + Plantilla.pieTable();
+        spyOn(Frontend.Article, 'actualizar');
+        Plantilla.imprimeNombres(vector);
+        expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de plantillas', expectedMsj);
+    });
+});
+
+
+
+
+
