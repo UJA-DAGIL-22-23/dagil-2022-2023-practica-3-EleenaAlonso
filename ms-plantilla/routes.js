@@ -60,7 +60,7 @@ router.get("/getTodos", async (req, res) => {
 /**
  * Devuelve los datos de la persona con el id pasado
  */
-router.get("/getPorId/idPersona", async (req, res) => {
+router.get("/getPorId/:idPersona", async (req, res) => {
     try {
         await callbacks.getPorId(req, res)
     } catch (error) {

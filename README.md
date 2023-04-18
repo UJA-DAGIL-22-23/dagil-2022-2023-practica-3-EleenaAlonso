@@ -442,20 +442,26 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 A continuación se mostrarán las capturas de pantalla pedidas:
 
 ## Captura de pantalla HOME en FAUNA
-<img src='./Home.png'>
+<img src='./assets/img/Home.png'>
 
 ## Captura de pantalla de base de datos en FAUNA
-<img src='./bbdd.png'>
+<img src='./assets/img/bbdd.png'>
 
 ## Captura de pantalla de colección en FAUNA
-<img src='./coleccion.png'>
+<img src='./assets/img/coleccion.png'>
 
 ## Capturas de pantalla PRIMER INCREMENTO de Trello comienzo/final 
-<img src='./increm1_trello_comienzo.png'>
-<img src='./increm1_trello_final.png'>
+<img src='./assets/img/increm1_trello_comienzo.png'>
+<img src='./assets/img/increm1_trello_final.png'>
 
 ## Capturas de pantalla SEGUNDO INCREMENTO de Trello comienzo/final 
-<img src='./increm2_trello_comienzo.png'>
+<img src='./assets/img/increm2_trello_comienzo.png'>
+
+
+# Capturas de pantalla del funcionamiento de la aplicación de las HU 
+
+## HU 1
+<img src='./assets/img/HU_1_Completada.png'>
 
 # Documentos creados en JSON
 
