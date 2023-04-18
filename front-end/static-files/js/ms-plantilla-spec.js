@@ -313,3 +313,4 @@ describe('Plantilla.imprimeUnaPersona', function () {
             expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Mostrar una persona', expectedMsj);
         });
 });
+  
