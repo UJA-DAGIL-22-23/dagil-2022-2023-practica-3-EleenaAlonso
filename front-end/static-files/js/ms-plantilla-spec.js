@@ -197,7 +197,7 @@ describe('Plantilla.imprimeNombres', function () {
             const expectedMsj = Plantilla.cabeceraTableNombres() + Plantilla.cuerpoTrNombres(vector[0]) + Plantilla.cuerpoTrNombres(vector[1]) + Plantilla.pieTable();
             spyOn(Frontend.Article, 'actualizar');
             Plantilla.imprimeNombres(vector);
-            expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de plantillas', expectedMsj);
+            expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de nombres', expectedMsj);
         });
 });
 
@@ -281,5 +281,35 @@ describe('Plantilla.imprime', function () {
             spyOn(Frontend.Article, 'actualizar');
             Plantilla.imprime(vector);
             expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de plantillas', expectedMsj);
+        });
+});
+
+
+//TDD para la Historia de Usuario 6 (HU 6)
+describe('Plantilla.imprimeUnaPersona', function () {
+    // Realizo los expect
+    it("debería mostrar una tabla con todos los datos de una persona en Frontend.Article",
+        function () {
+            const p = {
+                ref: { "@ref": { id: "ref persona 1" } },
+                data: {
+                    Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" },
+                    Fecha: { dia: 1, mes: 1, año: 2000 },
+                    Direccion: {
+                        calle: "Calle Feliz",
+                        localidad: "Springfield",
+                        provincia: "Estados Unidos",
+                        pais: "EEUU",
+                    },
+                    Anios_participacion_en_mundial: 2,
+                    Num_participaciones_mundiales_JJOO: 1,
+                    Mejor_estilo_natacion: "Mariposa",
+                }
+            }
+
+            const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(p) + Plantilla.pieTable();
+            spyOn(Frontend.Article, 'actualizar');
+            Plantilla.imprimeUnaPersona(p);
+            expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Mostrar una persona', expectedMsj);
         });
 });

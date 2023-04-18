@@ -63,4 +63,19 @@ describe('Servidor PLANTILLA:', () => {
         );
     });
   });
+
+  describe('Ruta /getTodos', () => {
+    it('Devuelve todas las personas de la BBDD', (done) => {
+      supertest(app)
+        .get('/getTodos')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(function (res) {
+        assert(Array.isArray(res.body)); // Se espera que el resultado sea un array
+        assert(res.body.length > 0); // Se espera que el array contenga al menos una persona
+        assert(res.body[0].hasOwnProperty('nombre')); // Se espera que cada objeto en el array tenga una propiedad 'nombre'
+      })
+      .end((error) => { error ? done.fail(error) : done() })
+      });
+    });
 });

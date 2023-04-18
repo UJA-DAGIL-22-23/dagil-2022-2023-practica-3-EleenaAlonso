@@ -335,7 +335,6 @@ Plantilla.cuerpoTrNombres = function (p) {
 }
 
 
-
 /**
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
@@ -372,7 +371,7 @@ Plantilla.imprimeNombres = function (vector) {
     msj += Plantilla.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar( "Listado de plantillas", msj )
+    Frontend.Article.actualizar( "Listado de nombres", msj )
 }
 
 
@@ -404,7 +403,6 @@ Plantilla.personaComoFormulario = function (persona) {
  * Almacena los datos de la persona que se está mostrando
  * @param {Persona} persona Datos de la persona a almacenar
  */
-
 Plantilla.almacenaDatos = function (persona) {
     Plantilla.personaMostrada = persona;
 }
