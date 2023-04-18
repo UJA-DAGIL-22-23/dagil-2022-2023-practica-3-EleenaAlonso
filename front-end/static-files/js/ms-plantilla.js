@@ -196,6 +196,7 @@ Plantilla.recuperaAlfabetic = async function (callBackFn) {
  */
 Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
     try {
+        console.log(idPersona);
         const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idPersona
         const response = await fetch(url);
         if (response) {
@@ -380,14 +381,13 @@ Plantilla.imprimeNombres = function (vector) {
  * @param {Persona} persona Datos de la persona a mostrar
  */
 Plantilla.imprimeUnaPersona = function (persona) {
-    // console.log(persona) // Para comprobar lo que hay en vector
-    //let msj = Plantilla.personaComoFormulario(persona);
-  
-    // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizarA("Mostrar una persona", msj)
+    let msj = "";
+    msj += Plantilla.cabeceraTable();
+    msj += Plantilla.cuerpoTr(persona);
+    msj += Plantilla.pieTable();
 
-    // Actualiza el objeto que guarda los datos mostrados
-    Plantilla.almacenaDatos(persona)
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar( "Mostrar una persona", msj )
 }
 
 
@@ -470,11 +470,3 @@ Plantilla.plantillaTablaPersonas.actualiza = function (persona) {
     return Plantilla.sustituyeTags(this.cuerpo, persona)
 }
 
-/**
- * Actualiza el formulario con los datos de la persona que se le pasa
- * @param {Persona} Persona Objeto con los datos de la persona que queremos escribir en el TR
- * @returns La plantilla del cuerpo de la tabla con los datos actualizados 
- */
-Plantilla.plantillaFormularioPersona.actualiza = function (persona) {
-    return Plantilla.sustituyeTags(this.formulario, persona)
-}
