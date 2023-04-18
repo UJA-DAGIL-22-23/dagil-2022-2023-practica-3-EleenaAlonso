@@ -12,6 +12,8 @@ const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TIT
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
 const TITULO_HOME = "Plantilla Home"
 const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_PLANTILLA = "Listado de plantillas"
+const TITULO_NOMBRES = "Listado de nombres"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -147,6 +149,12 @@ Esto afecta a los métodos:
 
 //TDD para la Historia de Usuario 2 y 3 (HU 2 y HU 3)
 describe("Plantilla.pieTable ", function () {
+    it("debería devolver las etiquetas HTML para el pie de tabla cuando se le pasa un valor nulo", function() {
+        expect(Plantilla.pieTable()).not.toBe(null);
+    });
+    it("debería devolver las etiquetas HTML para el pie de tabla cuando se le pasa un valor vacío", function() {
+        expect(Plantilla.pieTable()).not.toBe("");
+    });
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
             expect(Plantilla.pieTable()).toBe("</tbody></table>");
@@ -155,6 +163,14 @@ describe("Plantilla.pieTable ", function () {
 
 
 describe("Plantilla.TableNombres", function () {
+    it("debería devolver un string vacío si se le pasa un valor nulo",
+    function () {
+        expect(Plantilla.cabeceraTableNombres()).not.toBe(null);
+    });
+    it("debería devolver un string vacío si se le pasa un valor vacío",
+    function () {
+        expect(Plantilla.cabeceraTableNombres()).not.toBe("");
+    });
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
             expect(Plantilla.cabeceraTableNombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`);
@@ -171,6 +187,13 @@ describe('Plantilla.cuerpoTrNombres', function () {
         }
     }
     // Realizar los expect
+    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
+        expect(Plantilla.cuerpoTrNombres(p)).not.toBe(null);
+    });
+
+    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
+        expect(Plantilla.cuerpoTrNombres(p)).not.toBe("");
+    });
     it("debería devolver una cadena que contenga los nombres de la plantilla",
         function () {
             expect(Plantilla.cuerpoTrNombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td></tr>`);
@@ -180,20 +203,29 @@ describe('Plantilla.cuerpoTrNombres', function () {
 
 
 describe('Plantilla.imprimeNombres', function () {
+    // Preparar los datos de la prueba
+    const vector = [
+        {
+            ref: { "@ref": { id: "ref persona 1" } },
+            data: { Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" } }
+        },
+        {
+            ref: { "@ref": { id: "ref persona 2" } },
+            data: { Nombre_completo: { Nombre: "Lionel", Apellidos: "Messi" } }
+        }
+    ];
+
     // Realizo los expect
+    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
+        expect(Plantilla.imprimeNombres(vector)).not.toBe(null);
+    });
+
+    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
+        expect(Plantilla.imprimeNombres(vector)).not.toBe("");
+    });
+
     it("debería mostrar una tabla con los nombres de las plantillas en Frontend.Article",
         function () {
-            const vector = [
-                {
-                    ref: { "@ref": { id: "ref persona 1" } },
-                    data: { Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" } }
-                },
-                {
-                    ref: { "@ref": { id: "ref persona 2" } },
-                    data: { Nombre_completo: { Nombre: "Lionel", Apellidos: "Messi" } }
-                }
-            ];
-
             const expectedMsj = Plantilla.cabeceraTableNombres() + Plantilla.cuerpoTrNombres(vector[0]) + Plantilla.cuerpoTrNombres(vector[1]) + Plantilla.pieTable();
             spyOn(Frontend.Article, 'actualizar');
             Plantilla.imprimeNombres(vector);
@@ -204,6 +236,14 @@ describe('Plantilla.imprimeNombres', function () {
 
 //TDD para la Historia de Usuario 4 (HU 4)
 describe("Plantilla.cabeceraTable", function () {
+    // Realizo los expect
+    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
+        expect(Plantilla.cabeceraTable()).not.toBe(null);
+    });
+
+    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
+        expect(Plantilla.cabeceraTable()).not.toBe("");
+    });
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
             expect(Plantilla.cabeceraTable()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th></thead><tbody>`);
@@ -230,7 +270,15 @@ describe('Plantilla.cuerpoTr', function () {
         }
     }
 
-    // Realizar los expect
+    // Realizo los expect
+    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
+    expect(Plantilla.cuerpoTr(p)).not.toBe(null);
+    });
+
+    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
+        expect(Plantilla.cuerpoTr(p)).not.toBe("");
+    });
+
     it("debería devolver una cadena que contenga todos los datos de la plantilla de personas",
         function () {
             expect(Plantilla.cuerpoTr(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td><td>${p.data.Fecha.dia}/${p.data.Fecha.mes}/${p.data.Fecha.año}</td><td>${p.data.Direccion.calle}, ${p.data.Direccion.localidad}, ${p.data.Direccion.provincia}, ${p.data.Direccion.pais}</td><td>${p.data.Anios_participacion_en_mundial}</td><td>${p.data.Num_participaciones_mundiales_JJOO}</td><td>${p.data.Mejor_estilo_natacion}</td></tr>`);
@@ -239,44 +287,54 @@ describe('Plantilla.cuerpoTr', function () {
 
 
 describe('Plantilla.imprime', function () {
+    // Preparar los datos de la prueba
+    const vector = [
+        {
+            ref: { "@ref": { id: "ref persona 1" } },
+            data: { 
+                Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" },
+                Fecha: { dia: 1, mes: 1, año: 2000 },
+                Direccion: {
+                    calle: "Calle Falsa 123",
+                    localidad: "Springfield",
+                    provincia: "Estados Unidos",
+                    pais: "EEUU",
+                },
+                Anios_participacion_en_mundial: 2,
+                Num_participaciones_mundiales_JJOO: 1,
+                Mejor_estilo_natacion: "Mariposa",
+            }
+        },
+        {
+            ref: { "@ref": { id: "ref persona 2" } },
+            data: { 
+                Nombre_completo: { Nombre: "Lionel", Apellidos: "Messi" },
+                Fecha: { dia: 1, mes: 1, año: 2000 },
+                Direccion: {
+                    calle: "Calle Falsa 123",
+                    localidad: "Springfield",
+                    provincia: "Estados Unidos",
+                    pais: "EEUU",
+                },
+                Anios_participacion_en_mundial: 2,
+                Num_participaciones_mundiales_JJOO: 1,
+                Mejor_estilo_natacion: "Mariposa",
+        }
+        }
+    ];
+
     // Realizo los expect
+    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
+        expect(Plantilla.imprime(vector)).not.toBe(null);
+    });
+    
+    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
+        expect(Plantilla.imprime(vector)).not.toBe("");
+    });
+    
     it("debería mostrar una tabla con todos los datos de las plantillas de personas en Frontend.Article",
         function () {
-            const vector = [
-                {
-                    ref: { "@ref": { id: "ref persona 1" } },
-                    data: { 
-                        Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" },
-                        Fecha: { dia: 1, mes: 1, año: 2000 },
-                        Direccion: {
-                            calle: "Calle Falsa 123",
-                            localidad: "Springfield",
-                            provincia: "Estados Unidos",
-                            pais: "EEUU",
-                        },
-                        Anios_participacion_en_mundial: 2,
-                        Num_participaciones_mundiales_JJOO: 1,
-                        Mejor_estilo_natacion: "Mariposa",
-                    }
-                },
-                {
-                    ref: { "@ref": { id: "ref persona 2" } },
-                    data: { 
-                        Nombre_completo: { Nombre: "Lionel", Apellidos: "Messi" },
-                        Fecha: { dia: 1, mes: 1, año: 2000 },
-                        Direccion: {
-                            calle: "Calle Falsa 123",
-                            localidad: "Springfield",
-                            provincia: "Estados Unidos",
-                            pais: "EEUU",
-                        },
-                        Anios_participacion_en_mundial: 2,
-                        Num_participaciones_mundiales_JJOO: 1,
-                        Mejor_estilo_natacion: "Mariposa",
-                }
-                }
-            ];
-
+        
             const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(vector[0]) + Plantilla.cuerpoTr(vector[1]) + Plantilla.pieTable();
             spyOn(Frontend.Article, 'actualizar');
             Plantilla.imprime(vector);
@@ -287,26 +345,34 @@ describe('Plantilla.imprime', function () {
 
 //TDD para la Historia de Usuario 6 (HU 6)
 describe('Plantilla.imprimeUnaPersona', function () {
+    // Preparar los datos de la prueba
+    const p = {
+        ref: { "@ref": { id: "ref persona 1" } },
+        data: {
+            Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" },
+            Fecha: { dia: 1, mes: 1, año: 2000 },
+            Direccion: {
+                calle: "Calle Feliz",
+                localidad: "Springfield",
+                provincia: "Estados Unidos",
+                pais: "EEUU",
+            },
+            Anios_participacion_en_mundial: 2,
+            Num_participaciones_mundiales_JJOO: 1,
+            Mejor_estilo_natacion: "Mariposa",
+        }
+    }
     // Realizo los expect
+    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
+        expect(Plantilla.imprimeUnaPersona(p)).not.toBe(null);
+    });
+    
+    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
+        expect(Plantilla.imprimeUnaPersona(p)).not.toBe("");
+    });
+
     it("debería mostrar una tabla con todos los datos de una persona en Frontend.Article",
         function () {
-            const p = {
-                ref: { "@ref": { id: "ref persona 1" } },
-                data: {
-                    Nombre_completo: { Nombre: "Mireia", Apellidos: "Belmonte García" },
-                    Fecha: { dia: 1, mes: 1, año: 2000 },
-                    Direccion: {
-                        calle: "Calle Feliz",
-                        localidad: "Springfield",
-                        provincia: "Estados Unidos",
-                        pais: "EEUU",
-                    },
-                    Anios_participacion_en_mundial: 2,
-                    Num_participaciones_mundiales_JJOO: 1,
-                    Mejor_estilo_natacion: "Mariposa",
-                }
-            }
-
             const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(p) + Plantilla.pieTable();
             spyOn(Frontend.Article, 'actualizar');
             Plantilla.imprimeUnaPersona(p);
