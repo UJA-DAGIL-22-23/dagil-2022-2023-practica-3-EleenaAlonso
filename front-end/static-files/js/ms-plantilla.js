@@ -180,6 +180,37 @@ Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
 
 
 /**
+ * Función que recuperar todas las personas llamando al MS Personas. 
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
+ * @param {String} nopmbre nombre de la persona a buscar
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
+    let response = null
+    //console.log(nombre);
+    // Intento conectar con el microservicio proyectos
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Filtro el vector de personas para obtener solo la que tiene el nombre pasado como parámetro
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+       // console.log(vectorPersonas.data[0].data)     
+        const filtro = vectorPersonas.data.filter(persona => persona.data.Nombre_completo.Nombre === nombre)
+        //console.log(filtro)        
+        callBackFn(filtro)
+    }
+}
+
+/**
  * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres.
  * @returns True
  */
@@ -209,6 +240,15 @@ Plantilla.listar = function () {
  */
 Plantilla.mostrar = function (idPersona) {
     this.recuperaUnaPersona(idPersona, this.imprimeUnaPersona);
+}
+
+
+/**
+ * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * @returns True
+ */
+Plantilla.listarBuscar = function (search) {
+    this.recuperaBuscar(this.imprime,search);
 }
 
 /**
