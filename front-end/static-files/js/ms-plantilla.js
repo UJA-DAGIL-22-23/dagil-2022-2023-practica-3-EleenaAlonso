@@ -203,10 +203,12 @@ Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
     let vectorPlantilla = null
     if (response) {
         vectorPlantilla = await response.json()
-       // console.log(vectorPlantilla.data[0].data)     
-        const filtro = vectorPlantilla.data.filter(persona => persona.data.Nombre_completo.Nombre === nombre)
+        //console.log(vectorPlantilla.data[0].data)     
+        const filtro = vectorPlantilla.data.filter(persona => persona.data.Nombre_completo.Nombre === nombre);
         //console.log(filtro)        
         callBackFn(filtro)
+    }else{
+        console.error('Error')
     }
 }
 
@@ -248,7 +250,7 @@ Plantilla.mostrar = function (idPersona) {
  * @returns True
  */
 Plantilla.listarBuscar = function (search) {
-    this.recuperaBuscar(this.imprime,search);
+    this.recuperaBuscar(Plantilla.imprime, search);
 }
 
 /**

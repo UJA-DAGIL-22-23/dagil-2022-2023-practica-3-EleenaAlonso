@@ -19,8 +19,6 @@
     display: inline-block;
 }
 
-
-
 .opcion-principal {
     border: 2px solid rgba(100, 100, 100, 0.5);
     border-radius: .5em 0 .5em 0;
@@ -40,8 +38,6 @@
     color: white; /* Color del texto */
     padding: 12px 24px; /* Relleno */
     text-align: center; /* Alineación de texto */
-    text-decoration: none; /* Decoración de texto */
-    display: inline-block; /* Display */
     font-size: 16px; /* Tamaño de fuente */
     margin: 4px 2px; /* Margen */
     cursor: pointer; /* Cursor */
@@ -55,8 +51,6 @@
     color: black; /* Color del texto */
     padding: 12px 24px; /* Relleno */
     text-align: left; /* Alineación de texto */
-    text-decoration: none; /* Decoración de texto */
-    display: inline-block; /* Display */
     font-size: 14px; /* Tamaño de fuente */
     margin: 4px 2px; /* Margen */
     cursor: pointer; /* Cursor */
