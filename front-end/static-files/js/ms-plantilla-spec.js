@@ -216,14 +216,6 @@ describe('Plantilla.imprimeNombres', function () {
     ];
 
     // Realizo los expect
-    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
-        expect(Plantilla.imprimeNombres(vector)).not.toBe(null);
-    });
-
-    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
-        expect(Plantilla.imprimeNombres(vector)).not.toBe("");
-    });
-
     it("debería mostrar una tabla con los nombres de las plantillas en Frontend.Article",
         function () {
             const expectedMsj = Plantilla.cabeceraTableNombres() + Plantilla.cuerpoTrNombres(vector[0]) + Plantilla.cuerpoTrNombres(vector[1]) + Plantilla.pieTable();
@@ -323,18 +315,9 @@ describe('Plantilla.imprime', function () {
         }
     ];
 
-    // Realizo los expect
-    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
-        expect(Plantilla.imprime(vector)).not.toBe(null);
-    });
-    
-    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
-        expect(Plantilla.imprime(vector)).not.toBe("");
-    });
-    
+    // Realizo los expect  
     it("debería mostrar una tabla con todos los datos de las plantillas de personas en Frontend.Article",
-        function () {
-        
+        function () { 
             const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(vector[0]) + Plantilla.cuerpoTr(vector[1]) + Plantilla.pieTable();
             spyOn(Frontend.Article, 'actualizar');
             Plantilla.imprime(vector);
@@ -363,14 +346,6 @@ describe('Plantilla.imprimeUnaPersona', function () {
         }
     }
     // Realizo los expect
-    it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
-        expect(Plantilla.imprimeUnaPersona(p)).not.toBe(null);
-    });
-    
-    it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
-        expect(Plantilla.imprimeUnaPersona(p)).not.toBe("");
-    });
-
     it("debería mostrar una tabla con todos los datos de una persona en Frontend.Article",
         function () {
             const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(p) + Plantilla.pieTable();

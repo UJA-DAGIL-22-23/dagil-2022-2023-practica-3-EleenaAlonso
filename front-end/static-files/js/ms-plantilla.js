@@ -200,11 +200,11 @@ Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
     }
 
     // Filtro el vector de personas para obtener solo la que tiene el nombre pasado como parámetro
-    let vectorPersonas = null
+    let vectorPlantilla = null
     if (response) {
-        vectorPersonas = await response.json()
-       // console.log(vectorPersonas.data[0].data)     
-        const filtro = vectorPersonas.data.filter(persona => persona.data.Nombre_completo.Nombre === nombre)
+        vectorPlantilla = await response.json()
+       // console.log(vectorPlantilla.data[0].data)     
+        const filtro = vectorPlantilla.data.filter(persona => persona.data.Nombre_completo.Nombre === nombre)
         //console.log(filtro)        
         callBackFn(filtro)
     }
