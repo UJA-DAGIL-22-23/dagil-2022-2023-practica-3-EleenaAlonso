@@ -456,7 +456,6 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 
 ## Capturas de pantalla SEGUNDO INCREMENTO de Trello comienzo/final 
 <img src='./assets/img/increm2_trello_comienzo.png'>
-<img src='./assets/img/increm2_trello_final.png'>
 
 
 # Capturas de pantalla del funcionamiento de la aplicación de las HU 
@@ -481,7 +480,6 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 
 ## HU 10
 <img src='./assets/img/HU_10_Completada.png'>
-
 
 
 # Documentos creados en JSON
@@ -717,3 +715,7 @@ A continuación se mostrarán las capturas de pantalla pedidas:
   Mejor_estilo_natacion: "espalda"
 }
 ```
+
+# Problemas encontrados en la practica
+Al principio de la práctica había pensado en hacer tres incrementos; en el primero implementar las historias  de usuario 1,2,3 y 4. En la segunda hacer la 6,8 y 10. Y en el último incremento, hacer la 5 y 11.
+Como ponía en el guión de la práctica que al menos había que hacer tres historias de usuario por incremento, he decidido dividir esas historias en dos. En la que en el primer incremento añado las historias de usuario 1,2,3 y 4. Y en el segundo incremento añado las restantes, la 6, 8, 10, 5 y 11.
