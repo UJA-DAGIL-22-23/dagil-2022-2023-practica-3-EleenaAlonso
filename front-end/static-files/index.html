@@ -38,11 +38,13 @@
 
         <form>
             <input type="text" id="buscar" name="buscar" placeholder="Nombre" class="busc">
-            <button class="btn" onclick="buscar()">Buscar</button>
+            <button class="btn" type="button" onclick="buscar1()">Buscar</button>
         </form>
           <script>
-            function buscar() {
-                Plantilla.listarBuscar(document.getElementById("buscar").value);
+            function buscar1() {
+                var buscar = document.getElementById("buscar").value;
+                console.log(buscar);
+                Plantilla.listarBuscar(buscar);
             }
           </script>
 
