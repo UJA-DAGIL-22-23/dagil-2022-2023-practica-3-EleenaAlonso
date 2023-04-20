@@ -241,7 +241,7 @@ Plantilla.recuperaBuscarCuatro = async function (callBackFn, var1, var2, var3,va
     if (response) {
         vectorPersonas = await response.json()
        // console.log(vectorPersonas.data)     
-        const filtro = vectorPersonas.data.filter(persona => persona.data.Nombre_completo.Nombre === var1 && persona.data.Direccion.localidad === var2 && persona.data.Mejor_estilo_natacion === var3)
+        const filtro = vectorPersonas.data.filter(persona => persona.data.Nombre_completo.Nombre === var1 && persona.data.Direccion.localidad === var2 && persona.data.Mejor_estilo_natacion === var3 && persona.data.Anios_participacion_en_mundial.filter(Anios_participacion_en_mundial => Anios_participacion_en_mundial=== var4))
         console.log(filtro)        
         callBackFn(filtro)
     }
