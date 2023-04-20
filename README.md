@@ -456,6 +456,7 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 
 ## Capturas de pantalla SEGUNDO INCREMENTO de Trello comienzo/final 
 <img src='./assets/img/increm2_trello_comienzo.png'>
+<img src='./assets/img/increm2_trello_final.png'>
 
 
 # Capturas de pantalla del funcionamiento de la aplicación de las HU 
