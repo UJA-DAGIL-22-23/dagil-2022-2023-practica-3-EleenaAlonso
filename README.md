@@ -472,6 +472,15 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 ## HU 3
 <img src='./assets/img/HU_3_Completada.png'>
 
+## HU 6
+<img src='./assets/img/HU_6_Completada.png'>
+
+## HU 8
+<img src='./assets/img/HU_8_Completada.png'>
+
+## HU 10
+<img src='./assets/img/HU_10_Completada.png'>
+
 
 
 # Documentos creados en JSON
