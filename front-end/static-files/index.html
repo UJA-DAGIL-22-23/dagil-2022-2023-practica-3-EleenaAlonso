@@ -37,6 +37,7 @@
         
 
         <form>
+            <a>Buscar por nombre:</a>
             <input type="text" id="buscar" name="buscar" placeholder="Nombre" class="busc">
             <button class="btn" type="button" onclick="buscar1()">Buscar</button>
         </form>
@@ -49,10 +50,11 @@
           </script>
 
         <form>
+            <a>Buscar por cuatro criterios:</a>
             <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="busc">
             <input type="text" id="localidad" name="localidad" placeholder="Localidad" class="busc">
             <input type="text" id="estilo" name="estilo" placeholder="Estilo natación" class="busc">
-            <input type="text" id="anio" name="anio" placeholder="Año particiones mundiales" class="busc">
+            <input type="text" id="anio" name="anio" placeholder="Año participaciones mundiales" class="busc">
             <button class="btn" type="button" onclick="buscarCuatro()">Buscar</button>
         </form>
         <script>
@@ -64,6 +66,25 @@
                 Plantilla.listarBuscarCuatro(searchTerm1,searchTerm2,searchTerm3,searchTerm4);
             }
         </script>
+
+        <form>
+            <a>Buscar mínimo por un criterio:</a>
+            <input type="text" id="nom" name="nom" placeholder="Nombre" class="busc">
+            <input type="text" id="local" name="local" placeholder="Localidad" class="busc">
+            <input type="text" id="est" name="est" placeholder="Estilo natación" class="busc">
+            <input type="text" id="pais" name="pais" placeholder="País" class="busc">
+            <button class="btn" type="button" onclick="buscarPorUno()">Buscar</button>
+        </form>
+        <script>
+            function buscarPorUno() {
+                var searchTerm1 = document.getElementById("nom").value;
+                var searchTerm2 = document.getElementById("local").value;
+                var searchTerm3 = document.getElementById("est").value;
+                var searchTerm4 = document.getElementById("pais").value;
+                Plantilla.listarBuscarPorUno(searchTerm1,searchTerm2,searchTerm3,searchTerm4);
+            }
+        </script>
+
     </nav>
     
 

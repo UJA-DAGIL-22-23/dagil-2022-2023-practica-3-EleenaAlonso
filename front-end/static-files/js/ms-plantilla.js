@@ -241,11 +241,46 @@ Plantilla.recuperaBuscarCuatro = async function (callBackFn, var1, var2, var3,va
     if (response) {
         vectorPersonas = await response.json()
        // console.log(vectorPersonas.data)     
-        const filtro = vectorPersonas.data.filter(persona => persona.data.Nombre_completo.Nombre === var1 && persona.data.Direccion.localidad === var2 && persona.data.Mejor_estilo_natacion === var3 && persona.data.Anios_participacion_en_mundial.filter(Anios_participacion_en_mundial => Anios_participacion_en_mundial=== var4))
+        const filtro = vectorPersonas.data.filter(persona => persona.data.Nombre_completo.Nombre === var1 && persona.data.Direccion.localidad === var2 && persona.data.Mejor_estilo_natacion === var3 && persona.data.Anios_participacion_en_mundial.filter(Anios_participacion_en_mundial => Anios_participacion_en_mundial === var4))
         console.log(filtro)        
         callBackFn(filtro)
     }
 }
+
+/**
+ * Función que recuperar todas las personas llamando al MS Personas. 
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
+ * @param {String} var1 nombre de la persona a buscar
+ * @param {String} var2 localidad de la persona a buscar
+ * @param {String} var3 mejor estilo de natacion de la persona a buscar
+ * @param {String} var4 años de participacion en mundial de la persona a buscar
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+Plantilla.recuperaBuscarPorUno = async function (callBackFn, var1, var2, var3,var4) {
+    let response = null
+    //console.log(nombre);
+    // Intento conectar con el microservicio proyectos
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Filtro el vector de personas para obtener solo la que tiene el nombre pasado como parámetro
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+       // console.log(vectorPersonas.data)     
+        const filtro = vectorPersonas.data.filter(persona => persona.data.Nombre_completo.Nombre === var1 || persona.data.Direccion.localidad === var2 || persona.data.Mejor_estilo_natacion === var3 || persona.data.Direccion.pais === var4)
+        //console.log(filtro)        
+        callBackFn(filtro)
+    }
+}
+
 
 /**
  * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres.
@@ -294,6 +329,14 @@ Plantilla.listarBuscar = function (buscar) {
  */
 Plantilla.listarBuscarCuatro = function (search1,search2, search3,search4) {
     this.recuperaBuscarCuatro(this.imprime,search1,search2,search3,search4);
+}
+
+/**
+ * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * @returns True
+ */
+Plantilla.listarBuscarPorUno = function (search1,search2, search3,search4) {
+    this.recuperaBuscarPorUno(this.imprime,search1,search2,search3,search4);
 }
 
 /**
