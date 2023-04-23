@@ -438,6 +438,18 @@ El código en ese repositorio muestra una aplicación similar, pero con mucha m�
 
 Además, incluye documentación sobre dicho código y un vídeo descriptivo de cómo se ha realizado y cómo funciona la aplicación de ejemplo.
 
+
+## Información sobre el estudiante que ha realizado el ejercicio
+
+* **Nombre**: Elena 
+* **Apellidos**: Alonso Tejederas
+* **Correo**: eat00004@red.ujaen.es
+* **Trello**: https://trello.com/b/TFdMA1fB/practica3
+
+<img src='./assets/img/eat00004.png' width='200px'>
+
+Alumna del Grado de Ingeniería Informática de la Universidad de Jaén.
+
 # Capturas de pantalla
 A continuación se mostrarán las capturas de pantalla pedidas:
 
