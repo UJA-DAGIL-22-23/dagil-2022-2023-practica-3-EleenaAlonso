@@ -283,6 +283,128 @@ Plantilla.recuperaBuscarPorUno = async function (callBackFn, var1, var2, var3,va
 
 
 /**
+ * Función que recuperar todas las personas llamando al MS Personas. 
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
+ * @param {String} var1 dato de la persona a buscar
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+Plantilla.recuperaListarPor = async function (callBackFn,nom) {
+    let response = null
+
+    // Intento conectar con el microservicio plantilla
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPlantilla = null
+    if (response) {
+        vectorPlantilla = await response.json()
+        vectorPlantilla.data.sort((a,b) => {
+            const campoA = a.data[nom].toLowerCase();
+            const campoB = b.data[nom].toLowerCase();
+
+            if(campoA < campoB) { 
+                return -1; 
+            }
+            if(campoA > campoB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPlantilla.data)
+    }
+}
+
+
+
+/**
+ * Función que recuperar todas las personas llamando al MS Personas. 
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
+ * @param {String} var1 dato de la persona a buscar
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+Plantilla.recuperaNumeros = async function (callBackFn, nom) {
+    let response = null
+
+    // Intento conectar con el microservicio plantilla
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPlantilla = null
+    if (response) {
+        vectorPlantilla = await response.json()
+        vectorPlantilla.data.sort((a,b) => {
+            const campoA = parseFloat(a.data[nom]);
+            const campoB = parseFloat(b.data[nom]);
+
+            if(campoA < campoB) { 
+                return -1; 
+            }
+            if(campoA > campoB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPlantilla.data)
+    }
+}
+
+
+Plantilla.recuperaVarios = async function (callBackFn, nom, nom1) {
+    let response = null
+
+    // Intento conectar con el microservicio plantilla
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPlantilla = null
+    if (response) {
+        vectorPlantilla = await response.json()
+        vectorPlantilla.data.sort((a,b) => { //descomponiendo los caracteres acentuados
+            const campoA = a.data[nom][nom1].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+            const campoB = b.data[nom][nom1].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+            if(campoA < campoB) { 
+                return -1; 
+            }
+            if(campoA > campoB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPlantilla.data)
+    }
+}
+
+
+
+/**
  * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres.
  * @returns True
  */
@@ -337,6 +459,32 @@ Plantilla.listarBuscarCuatro = function (search1,search2, search3,search4) {
  */
 Plantilla.listarBuscarPorUno = function (search1,search2, search3,search4) {
     this.recuperaBuscarPorUno(this.imprime,search1,search2,search3,search4);
+}
+
+/**
+ * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * @returns True
+ */
+Plantilla.listarPor = function (campo) {
+    this.recuperaListarPor(this.imprime, campo);
+}
+
+
+/**
+ * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * @returns True
+ */
+Plantilla.listarPorNum = function (campo) {
+    Plantilla.recuperaNumeros(this.imprime, campo);
+}
+
+
+/**
+ * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * @returns True
+ */
+Plantilla.listarPorVarios = function (campo, campo1) {
+    Plantilla.recuperaVarios(this.imprime, campo, campo1);
 }
 
 /**
