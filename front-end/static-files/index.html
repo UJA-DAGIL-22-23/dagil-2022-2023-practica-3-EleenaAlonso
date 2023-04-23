@@ -49,7 +49,7 @@
         <form>
             <a>Buscar por nombre:</a>
             <input type="text" id="buscar" name="buscar" placeholder="Nombre" class="busc">
-            <button class="btn" type="button" onclick="buscar1()">Buscar</button>
+            <button class="btn" type="button" title="Realiza un listado de todas las personas que se llamen 'Nombre'" onclick="buscar1()">Buscar</button>
         </form>
           <script>
             function buscar1() {
@@ -65,7 +65,7 @@
             <input type="text" id="localidad" name="localidad" placeholder="Localidad" class="busc">
             <input type="text" id="estilo" name="estilo" placeholder="Estilo natación" class="busc">
             <input type="text" id="anio" name="anio" placeholder="Año participaciones mundiales" class="busc">
-            <button class="btn" type="button" onclick="buscarCuatro()">Buscar</button>
+            <button class="btn" type="button" onclick="buscarCuatro()" title="Realiza un listado de todas las personas que cumplan con los cuatro campos">Buscar</button>
         </form>
         <script>
             function buscarCuatro() {
@@ -83,7 +83,7 @@
             <input type="text" id="local" name="local" placeholder="Localidad" class="busc">
             <input type="text" id="est" name="est" placeholder="Estilo natación" class="busc">
             <input type="text" id="pais" name="pais" placeholder="País" class="busc">
-            <button class="btn" type="button" onclick="buscarPorUno()">Buscar</button>
+            <button class="btn" type="button" onclick="buscarPorUno()" title="Realiza un listado de todas las personas que cumplan con al menos un campo">Buscar</button>
         </form>
         <script>
             function buscarPorUno() {

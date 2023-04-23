@@ -285,7 +285,7 @@ Plantilla.recuperaBuscarPorUno = async function (callBackFn, var1, var2, var3,va
 /**
  * Función que recuperar todas las personas llamando al MS Personas. 
  * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
- * @param {String} var1 dato de la persona a buscar
+ * @param {String} nom dato de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
 Plantilla.recuperaListarPor = async function (callBackFn,nom) {
@@ -328,7 +328,7 @@ Plantilla.recuperaListarPor = async function (callBackFn,nom) {
 /**
  * Función que recuperar todas las personas llamando al MS Personas. 
  * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
- * @param {String} var1 dato de la persona a buscar
+ * @param {String} nom dato de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
 Plantilla.recuperaNumeros = async function (callBackFn, nom) {
@@ -367,6 +367,14 @@ Plantilla.recuperaNumeros = async function (callBackFn, nom) {
 }
 
 
+
+/**
+ * Función que recuperar todas las personas llamando al MS Personas. 
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
+ * @param {String} nom dato de la persona a buscar
+ * @param {String} nom1 dato de la persona a buscar
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
 Plantilla.recuperaVarios = async function (callBackFn, nom, nom1) {
     let response = null
 
