@@ -439,7 +439,7 @@ El código en ese repositorio muestra una aplicación similar, pero con mucha m�
 Además, incluye documentación sobre dicho código y un vídeo descriptivo de cómo se ha realizado y cómo funciona la aplicación de ejemplo.
 
 
-## Información sobre el estudiante que ha realizado el ejercicio
+# Información sobre el estudiante que ha realizado el ejercicio
 
 * **Nombre**: Elena 
 * **Apellidos**: Alonso Tejederas
@@ -454,7 +454,12 @@ Alumna del Grado de Ingeniería Informática de la Universidad de Jaén.
 A continuación se mostrarán las capturas de pantalla pedidas:
 
 ## Captura de pantalla HOME en FAUNA
+
+Al comenzar la práctica:
 <img src='./assets/img/Home.png'>
+
+Al terminar la práctica:
+<img src='./assets/img/Home_fin.png'>
 
 ## Captura de pantalla de base de datos en FAUNA
 <img src='./assets/img/bbdd.png'>
@@ -472,32 +477,42 @@ A continuación se mostrarán las capturas de pantalla pedidas:
 
 
 # Capturas de pantalla del funcionamiento de la aplicación de las HU 
-
-## HU 1
+## Primer incremento
+### HU 1
+> En esta Historia de Usuario se pretende mostrar la información del desarrollador de la aplicación al hacer clic en el botón *"Acerca de"*
 <img src='./assets/img/HU_1_Completada.png'>
 
-## HU 4
+### HU 4
+> En esta Historia de Usuario se pretende mostrar todos los datos/información de todos los nadadores al hacer clic en el botón *"Listado Datos Personas"*
 <img src='./assets/img/HU_4_Completada.png'>
 
-## HU 2
+### HU 2
+> En esta Historia de Usuario se pretende mostrar los ```Nombre``` y ```Apellidos``` de todos los nadadores al hacer clic en el botón *"Listado Nombres"*
 <img src='./assets/img/HU_2_Completada.png'>
 
-## HU 3
+### HU 3
+> En esta Historia de Usuario se pretende mostrar los ```Nombre``` y ```Apellidos``` de todos los nadadores ordenados alfabéticamente al hacer clic en el botón *"Listado nombres alfabéticamente"*
 <img src='./assets/img/HU_3_Completada.png'>
 
-## HU 6
+## Segundo incremento
+### HU 6
+> En esta Historia de Usuario se pretende mostrar todos los datos/información de un determinado nadador al hacer clic en el botón *"Mostrar una persona de ejemplo"*
 <img src='./assets/img/HU_6_Completada.png'>
 
-## HU 8
+### HU 8
+> En esta Historia de Usuario se pretende mostrar todos los datos/información de uno o varios determinados nadadores cuyo ```Nombre``` coincide con el criterio de búsqueda al hacer clic en el botón *"Buscar"*
 <img src='./assets/img/HU_8_Completada.png'>
 
-## HU 10
+### HU 10
+> En esta Historia de Usuario se pretende mostrar todos los datos/información de uno o varios determinados nadadores cuyo ```Nombre```, ```Localidad```, ```Mejor estilo de natación``` y ```Número de participaciones en JJOO``` coincide simultáneamente con todos los criterios de búsqueda al hacer clic en el botón *"Buscar"*
 <img src='./assets/img/HU_10_Completada.png'>
 
-## HU 11
+### HU 11
+> En esta Historia de Usuario se pretende mostrar todos los datos/información de uno o varios determinados nadadores cuyo ```Nombre```, ```Localidad```, ```Mejor estilo de nataciónn``` y ```País``` coincide al menos con alguno de los criterios de búsqueda al hacer clic en el botón *"Buscar"*
 <img src='./assets/img/HU_11_Completada.png'>
 
-## HU 5
+### HU 5
+> En esta Historia de Usuario se pretende mostrar todos los datos/información de uno o varios determinados nadadores ordenados alfabéticamente por el campo que decida el usuario ya sea ```Apellidos```,  ```Participaciones en mundiales de JJOO```, ```Localidad``` y ```Mejor estilo de natación``` al hacer clic en el botón *"Listar por"*
 <img src='./assets/img/HU_5_Completada.png'>
 
 
